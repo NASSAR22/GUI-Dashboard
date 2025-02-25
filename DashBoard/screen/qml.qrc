@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ui/BottomBar/BottomBar.qml</file>
+        <file>ui/RightScreen/RightScreen.qml</file>
+        <file>ui/LeftScreen/LeftScreen.qml</file>
+        <file>ui/assets/car.png</file>
+        <file>ui/assets/car1.png</file>
+        <file>ui/assets/car2.png</file>
+        <file>ui/assets/car3.png</file>
+        <file>ui/assets/car4.png</file>
+        <file>ui/assets/car5.png</file>
+        <file>ui/assets/car31.png</file>
+        <file>ui/assets/smallcar.png</file>
+        <file>ui/assets/racing-car.png</file>
+        <file>ui/assets/padlock (1).png</file>
+        <file>ui/assets/padlock-unlock.png</file>
+        <file>ui/assets/unlocked.png</file>
+        <file>ui/RightScreen/NavigationSearchBox.qml</file>
+        <file>ui/assets/search.png</file>
+        <file>ui/assets/search (1).png</file>
+        <file>ui/BottomBar/HVACComponent.qml</file>
+        <file>ui/BottomBar/VolumeControlComponent.qml</file>
+        <file>ui/assets/low-volume.png</file>
+        <file>ui/assets/medium-volume.png</file>
+        <file>ui/assets/mute.png</file>
+    </qresource>
+</RCC>
