@@ -1,0 +1,11 @@
+debug/qmlinterface.o
+debug/radialbar.o
+debug/main.o
+debug/svgimageprovider.o
+debug/teslasettings.o
+debug/appmodel.o
+debug/qrc_qml.o
+debug/moc_qmlinterface.o
+debug/moc_radialbar.o
+debug/moc_teslasettings.o
+debug/moc_appmodel.o

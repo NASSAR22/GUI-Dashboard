@@ -1,0 +1,11 @@
+release/qmlinterface.o
+release/radialbar.o
+release/main.o
+release/svgimageprovider.o
+release/teslasettings.o
+release/appmodel.o
+release/qrc_qml.o
+release/moc_qmlinterface.o
+release/moc_radialbar.o
+release/moc_teslasettings.o
+release/moc_appmodel.o
