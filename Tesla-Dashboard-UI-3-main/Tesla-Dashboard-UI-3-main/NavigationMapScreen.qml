@@ -1,5 +1,5 @@
 // ******************************************
-// ** Map and Route Simulation Page        **
+// **    Map and Route Simulation Page     **
 // ******************************************
 //
 // This QML page simulates a map and route functionality using Mapbox and OpenStreetMap. It
@@ -29,9 +29,9 @@ import Style 1.0
 Page {
     id: pageMap
 
-    property var currentLoc: QtPositioning.coordinate(28.4595, 77.0266)   // current location
-    property bool isRoutingStart: false
-    property bool runMapAnimation: false
+    property var currentLoc: QtPositioning.coordinate(30.33, 31.75)   // current location
+    property bool isRoutingStart: true //false
+    property bool runMapAnimation: true //false
     property bool enableGradient: true
     padding: 0
 
@@ -48,10 +48,13 @@ Page {
             GradientStop {
                 position: 0.0
                 color: "#00000000"
+                //color: "white"
             }
             GradientStop {
                 position: 0.72
-                color: "#000000"
+                color: "#00000000"
+                //color: "white"
+
             }
         }
     }
@@ -61,17 +64,37 @@ Page {
         id: map
 
         anchors.fill: parent
-        copyrightsVisible: false
-        center: QtPositioning.coordinate(28.4595, 77.0266)
+        copyrightsVisible: true //false
+        center: QtPositioning.coordinate(30.33, 31.75) // 10th of ramadan
         zoomLevel: 13.3
-        bearing: -80
+       // bearing: -80
 
         plugin: Plugin {
-            name: "mapboxgl"
+            //name: "mapboxgl"
+            name: "osm"
+            PluginParameter {
+                name: "osm.mapping.custom.host"
+                value: "https://www.openstreetmap.org/?#map=8/29.564/29.910&layers=Y.png"
+            }
 
             PluginParameter { name: "mapboxgl.access_token"; value: "pk.eyJ1IjoiaGFzZWVidGFyaXExOTk4IiwiYSI6ImNsbGw4cXQ3YTFsdXkzanBxaG1rZDZrYTgifQ.8M9sbj-GM8oDrhAfCMUasw"}
             PluginParameter { name: "mapboxgl.mapping.additional_style_urls"; value: "mapbox://styles/haseebtariq1998/clm1o9olf00rf01qxb3nr9n82"}
-        }
+            //plugin: Plugin {
+            //    name: "osm"
+
+            //     // Add a proper user agent
+            //     PluginParameter {
+            //         name: "osm.ayayousef"
+            //         value: "YourAppName/1.0 (contact@example.com)"
+            //     }
+
+            //     // Use a different tile server
+            //     PluginParameter {
+            //         name: "osm.mapping.custom.host"
+            //         value: "https://a.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png"
+                }
+            }
+
 
 
         // Route line, to show route from current location to destination
@@ -92,8 +115,8 @@ Page {
         MapQuickItem{
             id: currentLocationMarker
 
-            coordinate: QtPositioning.coordinate(28.4595, 77.0266)
-            visible: false
+            coordinate: QtPositioning.coordinate(30.31, 31.726) // 10th of ramadan
+            visible: true
             z: 1
 
             onCoordinateChanged:
@@ -130,7 +153,7 @@ Page {
         MapQuickItem{
             id: destinationMarker
 
-            visible: false
+            visible: true //false
             z: 1
 
             sourceItem: Rectangle{
@@ -153,7 +176,7 @@ Page {
         MapQuickItem{
             id: startMarker
 
-            visible: false
+            visible: true //false
             z: 1
             sourceItem: Rectangle{
                 width: adaptive.width(50) * (map.zoomLevel / 17)
@@ -184,7 +207,7 @@ Page {
 
             onRoutesChanged: {
                 map.center = routeModel.get(0).path[ (routeModel.get(0).path.length/2).toFixed(0) ]
-                destinationMarker.coordinate = QtPositioning.coordinate(26.2124,78.1772) //routeModel.get(0).path[ routeModel.get(0).path.length -1 ]
+                destinationMarker.coordinate = QtPositioning.coordinate(30.33, 31.75) //routeModel.get(0).path[ routeModel.get(0).path.length -1 ]
                 startMarker.coordinate = currentLoc
                 destinationMarker.visible = true
                 startMarker.visible = true
@@ -199,7 +222,7 @@ Page {
 
             interval: 3000
             onTriggered: {
-                startMarker.visible = false
+                startMarker.visible = true//false
                 currentLocationMarker.visible = true
                 isRoutingStart = true
                 simulateDrive.path = routeModel.get(0).path
@@ -240,6 +263,7 @@ Page {
                 name: "osm"
                 PluginParameter {
                     name: "osm.mapping.custom.host"
+                    //value: "https://www.openstreetmap.org/"
                     value: "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
                 }
             }
@@ -254,7 +278,7 @@ Page {
                 }
             }
         }
-    }
+
 
 
     // Animation to show at start where map tilts and rotates
@@ -300,3 +324,5 @@ Page {
         }
     }
 }
+
+
